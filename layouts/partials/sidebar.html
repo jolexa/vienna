@@ -1,8 +1,8 @@
 <aside>
     <div class="row top-buffer">
 
-      {{ if .Site.Params.RecentPosts }}
-        {{ if and (.Site.Params.RecentPosts) (.Site.Params.Tags) }}
+      {{ if .Site.Params.recentPosts }}
+        {{ if and (.Site.Params.recentPosts) (.Site.Params.tags) }}
           <div class="col-xs-12 col-sm-8 col-md-8">
         {{ else }}
           <div class="col-xs-12 col-sm-12 col-md-12">
@@ -12,7 +12,7 @@
                       <h2 class="panel-title">Recent Posts</h2>
                   </div>
                   <div class="list-group">
-                      {{range first .Site.Params.RecentPostDisplayCount .Site.Pages}}
+                      {{range first .Site.Params.recentPostDisplayCount .Site.Pages}}
                           <a href="{{.RelPermalink}}" class="list-group-item">{{ .Title }}</a>
                       {{ end }}
                   </div>
@@ -20,7 +20,7 @@
           </div>
       {{ end }}
 
-      {{ if .Site.Params.Tags }}
+      {{ if .Site.Params.tags }}
         <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">

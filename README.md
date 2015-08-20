@@ -61,6 +61,9 @@ copyright = "&copy; Copyright notice"
     # Short subtitle/tagline. This is displayed in the header.
     subtitle = "Short subtitle/tagline of your blog"
     themecolor = "#hexcolor" # Defines the tab color in Chrome for Android.
+    recentPosts = true
+    recentPostDisplayCount = 5
+    tags = true
 ```
 
 ## Usage
