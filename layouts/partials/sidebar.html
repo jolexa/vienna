@@ -2,7 +2,7 @@
     <div class="row top-buffer">
 
       {{ if .Site.Params.recentPosts }}
-        {{ if and (.Site.Params.recentPosts) (.Site.Params.tags) }}
+        {{ if or (and (.Site.Params.recentPosts) (.Site.Params.tags)) (and (.Site.Params.recentPosts) (.Site.Params.categories)) }}
           <div class="col-xs-12 col-sm-8 col-md-8">
         {{ else }}
           <div class="col-xs-12 col-sm-12 col-md-12">
@@ -18,6 +18,25 @@
                   </div>
               </div>
           </div>
+      {{ end }}
+
+      {{ if .Site.Params.categories }}
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Tags</h2>
+                </div>
+                <div class="list-group">
+                    {{ $baseurl := .Site.BaseURL }}
+                    {{ range $name, $value := .Site.Taxonomies.categories }}
+                    <a href="{{ $baseurl }}/categories/{{ $name | urlize }}" class="list-group-item">
+                        <span class="badge">{{ .Count }}</span>
+                        {{ $name }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
       {{ end }}
 
       {{ if .Site.Params.tags }}
